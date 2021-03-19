@@ -19,6 +19,7 @@ jobs:
         copy ngrok.exe C:\Windows\System32
     - name: Connect your NGROK account
       run: .\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
+      shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -command ". '{0}'"
       env:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
     - name: Download Important Files.
